@@ -57,7 +57,7 @@ addEventListener('click', (event) => {
     event.clientX,
     event.clientY,
     5,
-    'blue',
+    'green',
     null
   )
 
