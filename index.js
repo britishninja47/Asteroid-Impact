@@ -80,7 +80,7 @@ const projectiles = []
 const enemies = []
 
 function spawnEnimies(){
-  //setInterval(() => {
+  setInterval(() => {
     const radius = Math.random() * (30 - 6) + 6
 
     let x
@@ -104,11 +104,12 @@ function spawnEnimies(){
       }
 
     enemies.push(new Enemy(x, y, radius, color, velocity));
- // }, 1000)
+  }, 1000)
 }
 
+let animationID
 function animate() {
-  requestAnimationFrame(animate)
+ animationID = requestAnimationFrame(animate)
   c.clearRect(0, 0, canvas.width, canvas.height)
   player.draw()
   projectiles.forEach((projectile)=> {
@@ -118,14 +119,25 @@ function animate() {
  enemies.forEach((enemy, index) => {
    enemy.update()
 
+   const dist = Math.hypot(player.x - enemy.x,
+    player.y - enemy.y)
+
+    // Game Over
+    if (dist - enemy.radius - player.radius < 1) {
+      cancelAnimationFrame(animationID)
+    }
+
    projectiles.forEach((projectile, projectilesIndex) => {
     const dist = Math.hypot(projectile.x - enemy.x,
       projectile.y - enemy.y)
 
+     // When objects touch
      if (dist - enemy.radius - projectile.radius < 1)
      {
-      enemies.splice(index, 1)
+      setTimeout(() => {
+        enemies.splice(index, 1)
       projectiles.splice(projectilesIndex, 1)
+      }, 0);
      }
    })
  })
