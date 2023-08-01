@@ -1,9 +1,11 @@
-console.log(gsap)
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d')
 
 canvas.width = innerWidth
 canvas.height = innerHeight
+
+const scoreEl = document.querySelector('#scoreEl')
+
 
 class Player {
   constructor(x, y, radius, color) {
@@ -139,6 +141,7 @@ function spawnEnimies(){
 }
 
 let animationID
+let score = 0
 function animate() {
  animationID = requestAnimationFrame(animate)
  c.fillStyle = 'rgba(0, 0, 0, 0.1)'
@@ -193,15 +196,26 @@ function animate() {
            {x: (Math.random() - 0.5) * (Math.random() * 6),
             y: (Math.random() - 0.5) * (Math.random() * 6) }))
       }
+
+
       if (enemy.radius - 10 > 5) {
-        gsap.to(enemy, {
+
+         // Increase the score
+         score + 100
+         scoreEl.innerHTML = score
+
+
+         gsap.to(enemy, {
           radius: enemy.radius - 10
-        })
+         })
         setTimeout(() => {
         projectiles.splice(projectilesIndex, 1)
         }, 0);
-
     } else {
+      // remove from scene
+              score += 250
+      scoreEl.innerHTML = score
+
       setTimeout(() => {
         enemies.splice(index, 1)
       projectiles.splice(projectilesIndex, 1)
