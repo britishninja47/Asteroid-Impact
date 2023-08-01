@@ -1,3 +1,4 @@
+console.log(gsap)
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d')
 
@@ -144,14 +145,25 @@ function animate() {
     const dist = Math.hypot(projectile.x - enemy.x,
       projectile.y - enemy.y)
 
-     // When objects touch
+     // When projectiles touch enemy
      if (dist - enemy.radius - projectile.radius < 1)
      {
+
+      if (enemy.radius - 10 > 5) {
+        gsap.to(enemy, {
+          radius: enemy.radius - 10
+        })
+        setTimeout(() => {
+        projectiles.splice(projectilesIndex, 1)
+        }, 0);
+
+    } else {
       setTimeout(() => {
         enemies.splice(index, 1)
       projectiles.splice(projectilesIndex, 1)
       }, 0);
      }
+    }
    })
  })
 }
@@ -159,7 +171,7 @@ function animate() {
 
 addEventListener('click', (event) =>
   {
-    console.log(projectiles)
+
    const angle = Math.atan2(
    event.clientY - canvas.height / 2,
    event.clientX - canvas.width / 2)
