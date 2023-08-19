@@ -109,13 +109,13 @@ class Particle {
 const x = canvas.width / 2
 const y = canvas.height / 2
 
-let player = new Player(x, y, 12, 'white')
+let player = new Player(x, y, 11, 'white')
 let projectiles = []
 let enemies = []
 let particles = []
 
 function init() {
- player = new Player(x, y, 12, 'white')
+ player = new Player(x, y, 11, 'white')
  projectiles = []
  enemies = []
  particles = []
@@ -145,18 +145,20 @@ function spawnEnemies(){
 
       //Enemies Speed//
       const velocity = {
-       x: Math.cos(angle) / 2.1,
-       y: Math.sin(angle) / 2.1
+       x: Math.cos(angle) / 2.8,
+       y: Math.sin(angle) / 2.8
       }
 
     enemies.push(new Enemy(x, y, radius, color, velocity));
-  }, 1000)
+  }, 1080)
 }
 
-let animationID
+let animationId
 let score = 0
+let frame = 0
 function animate() {
- animationID = requestAnimationFrame(animate)
+ animationId = requestAnimationFrame(animate)
+
  c.fillStyle = 'rgba(0, 0, 0, 0.1)'
   c.fillRect(0, 0, canvas.width, canvas.height)
   player.draw()
@@ -191,7 +193,7 @@ function animate() {
 
     // Game Over
     if (dist - enemy.radius - player.radius < 1) {
-      cancelAnimationFrame(animationID)
+      cancelAnimationFrame(animationId)
       modalEl.style.display = 'flex'
       bigScoreEl.innerHTML = score
     }
@@ -216,7 +218,7 @@ function animate() {
       if (enemy.radius - 10 > 5) {
 
          // Increase the score
-         score + 100
+         score += 100
          scoreEl.innerHTML = score
 
 
@@ -250,8 +252,8 @@ addEventListener('click', (event) =>
    event.clientX - canvas.width / 2
    )
    const velocity = {
-    x: Math.cos(angle) * 7,
-    y: Math.sin(angle) * 7
+    x: Math.cos(angle) * 10,
+    y: Math.sin(angle) * 10
    }
    projectiles.push(new Projectile(
     canvas.width / 2, canvas.height / 2,
