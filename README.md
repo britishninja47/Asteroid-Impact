@@ -1,5 +1,6 @@
 # Asteroid-Impact
 Play as the only deep space survivor with one goal in mind, surviving an ongoing asteroid attack. Let's see how many points you can gather as you blast away every asteroid in sight. Thanks to a crash course from the one and only Chris Course this project was definitely a tough one but extremely satisfying. Included in-game music from Capcom Soundtracks & artists "Anamanaguchi".
+- Bugs are being fixed soon (Enemies tend to spawn faster every restart so try refreshing for an easier experience) 
 
 <ul>- One Player</ul> 
 
