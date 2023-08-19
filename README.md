@@ -5,6 +5,9 @@ Play as the only deep space survivor with one goal in mind, surviving an ongoing
 
 <h1>How To Play :video_game:</h1>
 Use Your Mouse To Aim & Click To Shoot
+
+![alt text](https://github.com/britishninja47/Asteroid-Impact/blob/main/Screenshot%202023-08-19%20at%2000.34.20.png)
+
 <h1>COPYRIGHTS</h1>
 
 <ul> I DO NOT OWN THE RIGHTS TO ANY IN-GAME MUSIC USED WITHIN THIS PROJECT ALL MUSIC RIGHTS GO TO
