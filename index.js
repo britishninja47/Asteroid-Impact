@@ -145,8 +145,8 @@ function spawnEnemies(){
 
       //Enemies Speed//
       const velocity = {
-       x: Math.cos(angle) / 2.5,
-       y: Math.sin(angle) / 2.5
+       x: Math.cos(angle) / 2,
+       y: Math.sin(angle) / 2
       }
 
     enemies.push(new Enemy(x, y, radius, color, velocity));
@@ -250,8 +250,8 @@ addEventListener('click', (event) =>
    event.clientX - canvas.width / 2
    )
    const velocity = {
-    x: Math.cos(angle) * 10,
-    y: Math.sin(angle) * 10
+    x: Math.cos(angle) * 7,
+    y: Math.sin(angle) * 7
    }
    projectiles.push(new Projectile(
     canvas.width / 2, canvas.height / 2,
